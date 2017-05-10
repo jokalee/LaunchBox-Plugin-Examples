@@ -1,0 +1,6 @@
+c:\users\andre\onedrive\documents\visual studio 2017\Projects\Launchbox Test\Launchbox Test\bin\Debug\Launchbox Test.dll
+c:\users\andre\onedrive\documents\visual studio 2017\Projects\Launchbox Test\Launchbox Test\bin\Debug\Launchbox Test.pdb
+c:\users\andre\onedrive\documents\visual studio 2017\Projects\Launchbox Test\Launchbox Test\bin\Debug\Unbroken.LaunchBox.Plugins.dll
+c:\users\andre\onedrive\documents\visual studio 2017\Projects\Launchbox Test\Launchbox Test\obj\Debug\Launchbox Test.csprojResolveAssemblyReference.cache
+c:\users\andre\onedrive\documents\visual studio 2017\Projects\Launchbox Test\Launchbox Test\obj\Debug\Launchbox Test.dll
+c:\users\andre\onedrive\documents\visual studio 2017\Projects\Launchbox Test\Launchbox Test\obj\Debug\Launchbox Test.pdb
