@@ -1,15 +1,15 @@
-# TheGamesDB C# API
-A C# API for [TheGamesDB](http://thegamesdb.net/), a free open-source online database for video games. See the [API Introduction](http://wiki.thegamesdb.net/index.php?title=API_Introduction) on the wiki.
+# GamesDB Scraper
 
-## License
-Released into the [public domain](LICENSE).
+a example of using an external api
 
-# Binaries
-[Latest DLL](https://dl.dropboxusercontent.com/u/43861031/TheGamesDBAPI/TheGamesDBAPI.dll)
+# Namespaces
+Unbroken.LaunchBox.Plugins
+Unbroken.LaunchBox.Plugins.Data
 
-# Documentation
-[Online Documentation](https://dl.dropboxusercontent.com/u/43861031/TheGamesDBAPI/Documentation/index.html)
+# Interfaces
+IGameMenuItemPlugin
 
-See the [Example Application](https://github.com/Chainsawkitten/gamesdb-csharp-api/blob/master/ExampleApplication/Program.cs) for example usage.
-
+#Usage
+selectedGame.Platform()
+selectedGame.Title()
 
