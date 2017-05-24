@@ -46,23 +46,31 @@ namespace Movie_Scrapper
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            string moviedb = (comboBox1.SelectedItem as ComboboxItem).Value.ToString();
+            string movieinfo = FanartTv.Helper.Json.GetJson("https://api.themoviedb.org/3/movie/" + moviedb + "?api_key=6caeea089cc15cefb0ecb71d257b8c86&language=en-US");
+            dynamic imdbsearch = JObject.Parse(movieinfo);
+            if (imdbsearch.poster_path != null)
+            {
+                pictureBox1.Load("https://image.tmdb.org/t/p/w500" + imdbsearch.poster_path);
+            }
+            else
+            {
+                pictureBox1.Load("https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/No_image_available_400_x_600.svg/500px-No_image_available_400_x_600.svg.png");
+            }
+            
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             string moviedb = (comboBox1.SelectedItem as ComboboxItem).Value.ToString();
             string movieinfo = FanartTv.Helper.Json.GetJson("https://api.themoviedb.org/3/movie/" + moviedb + "?api_key=6caeea089cc15cefb0ecb71d257b8c86&language=en-US");
-
-            String search = "imdb_id" + '"' + ':' + '"';
-
-            int pFrom = movieinfo.IndexOf(search) + search.Length;
-            int pTo = movieinfo.LastIndexOf('"' + "," + '"' + "original_language");
-
-
-
-            String result = movieinfo.Substring(pFrom, pTo - pFrom);
-            Class1.imdbid = result;
+            dynamic imdbsearch = JObject.Parse(movieinfo);
+            Class1.imdbid = imdbsearch.imdb_id.ToString();
+            Class1.moviedbid = imdbsearch.id.ToString();
+            Class1.plot = imdbsearch.overview.ToString();
+            Class1.movietitle = imdbsearch.original_title.ToString();
+            Class1.movieyear = imdbsearch.release_date.ToString();
             this.Close();
         }
 
@@ -72,6 +80,11 @@ namespace Movie_Scrapper
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

@@ -9,14 +9,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie Scrapper", "Movie Scr
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug Launchbox|Any CPU = Debug Launchbox|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{962ACCAA-ADCD-431F-A4FF-4B7588B5FD89}.Debug Launchbox|Any CPU.ActiveCfg = Debug|Any CPU
+		{962ACCAA-ADCD-431F-A4FF-4B7588B5FD89}.Debug Launchbox|Any CPU.Build.0 = Debug|Any CPU
 		{962ACCAA-ADCD-431F-A4FF-4B7588B5FD89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{962ACCAA-ADCD-431F-A4FF-4B7588B5FD89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{962ACCAA-ADCD-431F-A4FF-4B7588B5FD89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{962ACCAA-ADCD-431F-A4FF-4B7588B5FD89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5609CB96-F97D-474C-AE1E-E9F49DD7E8A2}.Debug Launchbox|Any CPU.ActiveCfg = Debug Launchbox|Any CPU
+		{5609CB96-F97D-474C-AE1E-E9F49DD7E8A2}.Debug Launchbox|Any CPU.Build.0 = Debug Launchbox|Any CPU
 		{5609CB96-F97D-474C-AE1E-E9F49DD7E8A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5609CB96-F97D-474C-AE1E-E9F49DD7E8A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5609CB96-F97D-474C-AE1E-E9F49DD7E8A2}.Release|Any CPU.ActiveCfg = Release|Any CPU

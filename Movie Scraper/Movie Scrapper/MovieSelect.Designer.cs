@@ -34,12 +34,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(13, 94);
+            this.comboBox1.Location = new System.Drawing.Point(13, 92);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(259, 21);
             this.comboBox1.TabIndex = 0;
@@ -47,9 +49,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(13, 122);
+            this.button1.Location = new System.Drawing.Point(3, 172);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 40);
+            this.button1.Size = new System.Drawing.Size(138, 39);
             this.button1.TabIndex = 1;
             this.button1.Text = "ACCEPT";
             this.button1.UseVisualStyleBackColor = true;
@@ -57,9 +59,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(147, 122);
+            this.button2.Location = new System.Drawing.Point(147, 172);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(125, 40);
+            this.button2.Size = new System.Drawing.Size(125, 39);
             this.button2.TabIndex = 2;
             this.button2.Text = "CANCEL";
             this.button2.UseVisualStyleBackColor = true;
@@ -93,11 +95,21 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Please select the correct movie";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(281, 9);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(154, 202);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // MovieSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 189);
+            this.ClientSize = new System.Drawing.Size(442, 221);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -106,6 +118,7 @@
             this.Controls.Add(this.comboBox1);
             this.Name = "MovieSelect";
             this.Text = "MovieSelect";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,5 +132,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
