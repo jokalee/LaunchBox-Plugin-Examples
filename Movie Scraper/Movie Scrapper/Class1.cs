@@ -18,6 +18,8 @@ namespace Movie_Scrapper
         public static string plot { get; set; }
         public static string movietitle { get; set; }
         public static string movieyear { get; set; }
+        public static string movieposter { get; set; }
+        public static string moviebackground { get; set; }
         public bool SupportsMultipleGames
         {
             get
@@ -213,14 +215,15 @@ namespace Movie_Scrapper
                 }
             }
 
-            if (File.Exists(gamejoin + "\\Box - Front\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.jpg") == false)
+            
+            if (File.Exists(gamejoin + "\\Box - Front\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg") == false)
             {
                 if (File.Exists(MovieTrimmed + "-poster.jpg") == true)
                 {
                     try
                     {
                         Directory.CreateDirectory(gamejoin + "\\Box - Front");
-                        File.Copy(MovieTrimmed + "-poster.jpg", gamejoin + "\\Box - Front\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.jpg");
+                        File.Copy(MovieTrimmed + "-poster.jpg", gamejoin + "\\Box - Front\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg");
                     }
                     catch
                     {
@@ -230,7 +233,7 @@ namespace Movie_Scrapper
                 }
             }
             
-            if (File.Exists(gamejoin + "\\Banner\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.jpg") == false)
+            if (File.Exists(gamejoin + "\\Banner\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg") == false)
             {
                 
                 if (File.Exists(MovieTrimmed + "-landscape.jpg") == true)
@@ -238,7 +241,7 @@ namespace Movie_Scrapper
                     try
                     {
                         Directory.CreateDirectory(gamejoin + "\\Banner");
-                        File.Copy(MovieTrimmed + "-landscape.jpg", gamejoin + "\\Banner\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.jpg");
+                        File.Copy(MovieTrimmed + "-landscape.jpg", gamejoin + "\\Banner\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg");
                     }
                     catch
                     {
@@ -248,14 +251,14 @@ namespace Movie_Scrapper
                 }
             }
 
-            if (File.Exists(gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.png") == false)
+            if (File.Exists(gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.png") == false)
             {
                 if (File.Exists(MovieTrimmed + "-clearlogo.png") == true)
                 {
                     try
                     {
                         Directory.CreateDirectory(gamejoin + "\\Clear Logo");
-                        File.Copy(MovieTrimmed + "-clearlogo.png", gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.png");
+                        File.Copy(MovieTrimmed + "-clearlogo.png", gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.png");
                     }
                     catch
                     {
@@ -277,7 +280,7 @@ namespace Movie_Scrapper
                 var matches = Regex.Matches(strip, @"{(.*?)}", RegexOptions.Singleline);
                 if (matches.Count > 1)
                 {
-                    MovieSelect dlg = new MovieSelect(strip);
+                    MovieSelect dlg = new MovieSelect(strip,selectedGame.ApplicationPath);
                     dlg.ShowDialog();
 
                 }
@@ -318,6 +321,35 @@ namespace Movie_Scrapper
             }
            
 
+            if (moviebackground != null)
+            {
+
+                if (File.Exists(gamejoin + "\\Fanart - Background\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg") == false)
+                {
+                    using (WebClient client = new WebClient())
+
+                    {
+                        Directory.CreateDirectory(gamejoin + "\\Fanart - Background");
+                        client.DownloadFile(new Uri("https://image.tmdb.org/t/p/w500" + moviebackground), gamejoin + "\\Fanart - Background\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg");
+
+                    }
+                }
+            }
+
+            if (movieposter != null)
+            {
+
+                if (File.Exists(gamejoin + "\\Box - Front\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg") == false)
+                {
+                    using (WebClient client = new WebClient())
+
+                    {
+                        Directory.CreateDirectory(gamejoin + "\\Box - Front");
+                        client.DownloadFile(new Uri("https://image.tmdb.org/t/p/w500" + movieposter), gamejoin + "\\Box - Front\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg");
+
+                    }
+                }
+            }
 
             if (imdbid != null)
             {
@@ -328,13 +360,71 @@ namespace Movie_Scrapper
                 {
                     foreach (var poster in mo0.List.Movielogo)
                     {
-                        if (File.Exists(gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.png") == false)
+                        if (File.Exists(gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.png") == false)
                         {
                             using (WebClient client = new WebClient())
 
                             {
                                 Directory.CreateDirectory(gamejoin + "\\Clear Logo");
-                                client.DownloadFile(new Uri(poster.Url), gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.png");
+                                client.DownloadFile(new Uri(poster.Url), gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.png");
+
+                            }
+                        }
+
+
+                    }
+                }
+
+                if (mo0.List.Hdmovielogo != null)
+                {
+                    foreach (var poster in mo0.List.Hdmovielogo)
+                    {
+                        if (File.Exists(gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.png") == false)
+                        {
+                            using (WebClient client = new WebClient())
+
+                            {
+                                Directory.CreateDirectory(gamejoin + "\\Clear Logo");
+                                client.DownloadFile(new Uri(poster.Url), gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.png");
+
+                            }
+                        }
+
+
+                    }
+                }
+
+                if (mo0.List.Moviedisc != null)
+                {
+                    foreach (var poster in mo0.List.Moviedisc)
+                    {
+                        if (File.Exists(gamejoin + "\\Disc\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.png") == false)
+                        {
+                            using (WebClient client = new WebClient())
+
+                            {
+                                Directory.CreateDirectory(gamejoin + "\\Disc");
+                                client.DownloadFile(new Uri(poster.Url), gamejoin + "\\Disc\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.png");
+
+                            }
+                        }
+
+
+                    }
+                }
+
+
+                if (mo0.List.Hdmovieclearart != null)
+                {
+                    foreach (var poster in mo0.List.Hdmovieclearart)
+                    {
+                        if (File.Exists(gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.png") == false)
+                        {
+                            using (WebClient client = new WebClient())
+
+                            {
+                                Directory.CreateDirectory(gamejoin + "\\Clear Logo");
+                                client.DownloadFile(new Uri(poster.Url), gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.png");
 
                             }
                         }
@@ -347,13 +437,13 @@ namespace Movie_Scrapper
                 {
                     foreach (var poster in mo0.List.Moviebanner)
                     {
-                        if (File.Exists(gamejoin + "\\Banner\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.jpg") == false)
+                        if (File.Exists(gamejoin + "\\Banner\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg") == false)
                         {
                             using (WebClient client = new WebClient())
 
                             {
                                 Directory.CreateDirectory(gamejoin + "\\Banner");
-                                client.DownloadFile(new Uri(poster.Url), gamejoin + "\\Banner\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.jpg");
+                                client.DownloadFile(new Uri(poster.Url), gamejoin + "\\Banner\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg");
 
                             }
                         }
@@ -366,13 +456,13 @@ namespace Movie_Scrapper
                 {
                     foreach (var poster in mo0.List.Moviebackground)
                     {
-                        if (File.Exists(gamejoin + "\\Fanart - Background\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.jpg") == false)
+                        if (File.Exists(gamejoin + "\\Fanart - Background\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg") == false)
                         {
                             using (WebClient client = new WebClient())
 
                             {
                                 Directory.CreateDirectory(gamejoin + "\\Fanart - Background");
-                                client.DownloadFile(new Uri(poster.Url), gamejoin + "\\Fanart - Background\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.jpg");
+                                client.DownloadFile(new Uri(poster.Url), gamejoin + "\\Fanart - Background\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg");
 
                             }
                         }
@@ -385,13 +475,13 @@ namespace Movie_Scrapper
                 {
                     foreach (var poster in mo0.List.Movieposter)
                     {
-                        if (File.Exists(gamejoin + "\\Box - Front\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.jpg") == false)
+                        if (File.Exists(gamejoin + "\\Box - Front\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg") == false)
                         {
                             using (WebClient client = new WebClient())
 
                             {
                                 Directory.CreateDirectory(gamejoin + "\\Box - Front");
-                                client.DownloadFile(new Uri(poster.Url), gamejoin + "\\Box - Front\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.jpg");
+                                client.DownloadFile(new Uri(poster.Url), gamejoin + "\\Box - Front\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg");
 
                             }
 
@@ -403,8 +493,14 @@ namespace Movie_Scrapper
                 }
             }
 
-                //save changes
-                PluginHelper.DataManager.Save();
+            imdbid = null;
+            moviedbid = null;
+            plot = null;
+        movietitle = null;
+        movieyear = null;
+            movieposter = null;
+            moviebackground = null;
+            PluginHelper.DataManager.Save();
             MessageBox.Show("Scrape Complete Remember to refresh imagaes with f5");
         }
 
@@ -550,7 +646,7 @@ namespace Movie_Scrapper
                     }
                 }
 
-                if (File.Exists(gamejoin + "\\Box - Front\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.jpg") == false)
+                if (File.Exists(gamejoin + "\\Box - Front\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg") == false)
                 {
                     if (File.Exists(MovieTrimmed + "-poster.jpg") == true)
                     {
@@ -558,7 +654,7 @@ namespace Movie_Scrapper
 
                         {
                             Directory.CreateDirectory(gamejoin + "\\Box - Front");
-                            File.Copy(MovieTrimmed + "-poster.jpg", gamejoin + "\\Box - Front\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.jpg");
+                            File.Copy(MovieTrimmed + "-poster.jpg", gamejoin + "\\Box - Front\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg");
                         }
                         catch
                         {
@@ -568,7 +664,7 @@ namespace Movie_Scrapper
                     }
                 }
 
-                if (File.Exists(gamejoin + "\\Banner\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.jpg") == false)
+                if (File.Exists(gamejoin + "\\Banner\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg") == false)
                 {
 
                     if (File.Exists(MovieTrimmed + "-landscape.jpg") == true)
@@ -576,7 +672,7 @@ namespace Movie_Scrapper
                         try
                         {
                             Directory.CreateDirectory(gamejoin + "\\Banner");
-                            File.Copy(MovieTrimmed + "-landscape.jpg", gamejoin + "\\Banner\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.jpg");
+                            File.Copy(MovieTrimmed + "-landscape.jpg", gamejoin + "\\Banner\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg");
                         }
                         catch
                         {
@@ -586,14 +682,14 @@ namespace Movie_Scrapper
                     }
                 }
 
-                if (File.Exists(gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.png") == false)
+                if (File.Exists(gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.png") == false)
                 {
                     if (File.Exists(MovieTrimmed + "-clearlogo.png") == true)
                     {
                         try
                         {
                             Directory.CreateDirectory(gamejoin + "\\Clear Logo");
-                            File.Copy(MovieTrimmed + "-clearlogo.png", gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.png");
+                            File.Copy(MovieTrimmed + "-clearlogo.png", gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.png");
                         }
                         catch
                         {
@@ -615,7 +711,7 @@ namespace Movie_Scrapper
                     var matches = Regex.Matches(strip, @"{(.*?)}", RegexOptions.Singleline);
                     if (matches.Count > 1)
                     {
-                        MovieSelect dlg = new MovieSelect(strip);
+                        MovieSelect dlg = new MovieSelect(strip,selectedGame.ApplicationPath);
                         dlg.ShowDialog();
 
                     }
@@ -655,7 +751,35 @@ namespace Movie_Scrapper
                     selectedGame.Notes = plot;
                 }
 
+                if (moviebackground != null)
+                {
 
+                    if (File.Exists(gamejoin + "\\Fanart - Background\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg") == false)
+                    {
+                        using (WebClient client = new WebClient())
+
+                        {
+                            Directory.CreateDirectory(gamejoin + "\\Fanart - Background");
+                            client.DownloadFile(new Uri("https://image.tmdb.org/t/p/w500" + moviebackground), gamejoin + "\\Fanart - Background\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg");
+
+                        }
+                    }
+                }
+
+                if (movieposter != null)
+                {
+
+                    if (File.Exists(gamejoin + "\\Box - Front\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg") == false)
+                    {
+                        using (WebClient client = new WebClient())
+
+                        {
+                            Directory.CreateDirectory(gamejoin + "\\Box - Front");
+                            client.DownloadFile(new Uri("https://image.tmdb.org/t/p/w500" + movieposter), gamejoin + "\\Box - Front\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg");
+
+                        }
+                    }
+                }
 
                 if (imdbid != null)
                 {
@@ -666,13 +790,13 @@ namespace Movie_Scrapper
                     {
                         foreach (var poster in mo0.List.Movielogo)
                         {
-                            if (File.Exists(gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.png") == false)
+                            if (File.Exists(gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.png") == false)
                             {
                                 using (WebClient client = new WebClient())
 
                                 {
                                     Directory.CreateDirectory(gamejoin + "\\Clear Logo");
-                                    client.DownloadFile(new Uri(poster.Url), gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.png");
+                                    client.DownloadFile(new Uri(poster.Url), gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.png");
 
                                 }
                             }
@@ -681,17 +805,96 @@ namespace Movie_Scrapper
                         }
                     }
 
+                    if (mo0.List.Movielogo != null)
+                    {
+                        foreach (var poster in mo0.List.Movielogo)
+                        {
+                            if (File.Exists(gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.png") == false)
+                            {
+                                using (WebClient client = new WebClient())
+
+                                {
+                                    Directory.CreateDirectory(gamejoin + "\\Clear Logo");
+                                    client.DownloadFile(new Uri(poster.Url), gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.png");
+
+                                }
+                            }
+
+
+                        }
+                    }
+
+                    if (mo0.List.Hdmovielogo != null)
+                    {
+                        foreach (var poster in mo0.List.Hdmovielogo)
+                        {
+                            if (File.Exists(gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.png") == false)
+                            {
+                                using (WebClient client = new WebClient())
+
+                                {
+                                    Directory.CreateDirectory(gamejoin + "\\Clear Logo");
+                                    client.DownloadFile(new Uri(poster.Url), gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.png");
+
+                                }
+                            }
+
+
+                        }
+                    }
+
+
+                    if (mo0.List.Hdmovieclearart != null)
+                    {
+                        foreach (var poster in mo0.List.Hdmovieclearart)
+                        {
+                            if (File.Exists(gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.png") == false)
+                            {
+                                using (WebClient client = new WebClient())
+
+                                {
+                                    Directory.CreateDirectory(gamejoin + "\\Clear Logo");
+                                    client.DownloadFile(new Uri(poster.Url), gamejoin + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.png");
+
+                                }
+                            }
+
+
+                        }
+                    }
+
+
+                    if (mo0.List.Moviedisc != null)
+                    {
+                        foreach (var poster in mo0.List.Moviedisc)
+                        {
+                            if (File.Exists(gamejoin + "\\Disc\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.png") == false)
+                            {
+                                using (WebClient client = new WebClient())
+
+                                {
+                                    Directory.CreateDirectory(gamejoin + "\\Disc");
+                                    client.DownloadFile(new Uri(poster.Url), gamejoin + "\\Disc\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.png");
+
+                                }
+                            }
+
+
+                        }
+                    }
+
+
                     if (mo0.List.Moviebanner != null)
                     {
                         foreach (var poster in mo0.List.Moviebanner)
                         {
-                            if (File.Exists(gamejoin + "\\Banner\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.jpg") == false)
+                            if (File.Exists(gamejoin + "\\Banner\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg") == false)
                             {
                                 using (WebClient client = new WebClient())
 
                                 {
                                     Directory.CreateDirectory(gamejoin + "\\Banner");
-                                    client.DownloadFile(new Uri(poster.Url), gamejoin + "\\Banner\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.jpg");
+                                    client.DownloadFile(new Uri(poster.Url), gamejoin + "\\Banner\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg");
 
                                 }
                             }
@@ -704,13 +907,13 @@ namespace Movie_Scrapper
                     {
                         foreach (var poster in mo0.List.Moviebackground)
                         {
-                            if (File.Exists(gamejoin + "\\Fanart - Background\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.jpg") == false)
+                            if (File.Exists(gamejoin + "\\Fanart - Background\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg") == false)
                             {
                                 using (WebClient client = new WebClient())
 
                                 {
                                     Directory.CreateDirectory(gamejoin + "\\Fanart - Background");
-                                    client.DownloadFile(new Uri(poster.Url), gamejoin + "\\Fanart - Background\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.jpg");
+                                    client.DownloadFile(new Uri(poster.Url), gamejoin + "\\Fanart - Background\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg");
 
                                 }
                             }
@@ -723,13 +926,13 @@ namespace Movie_Scrapper
                     {
                         foreach (var poster in mo0.List.Movieposter)
                         {
-                            if (File.Exists(gamejoin + "\\Box - Front\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.jpg") == false)
+                            if (File.Exists(gamejoin + "\\Box - Front\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg") == false)
                             {
                                 using (WebClient client = new WebClient())
 
                                 {
                                     Directory.CreateDirectory(gamejoin + "\\Box - Front");
-                                    client.DownloadFile(new Uri(poster.Url), gamejoin + "\\Box - Front\\" + Unbroken.FileHelper.GetFileNameWithoutExtensionSafe(selectedGame.Title) + "-01.jpg");
+                                    client.DownloadFile(new Uri(poster.Url), gamejoin + "\\Box - Front\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01.jpg");
 
                                 }
 
@@ -739,8 +942,15 @@ namespace Movie_Scrapper
 
                         }
                     }
+                    imdbid = null;
+                   
                 }
-
+                 moviedbid = null;
+                    plot = null;
+                    movietitle = null;
+                    movieyear = null;
+                movieposter = null;
+                moviebackground = null;
             }
 
 

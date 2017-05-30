@@ -7,31 +7,48 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Movie_Scrapper
+namespace Import_TV_Shows
 {
-    public partial class MovieSelect : Form
+    public partial class Tv_Select : Form
     {
-        public MovieSelect(string strip,string gamepath)
+        
+
+        public Tv_Select(string strip, string Title)
         {
             InitializeComponent();
-            this.Text = Path.GetFileNameWithoutExtension(gamepath);
+            this.Text = Title;
             var matches = Regex.Matches(strip, @"{(.*?)}", RegexOptions.Singleline);
             foreach (var match in matches)
             {
                 dynamic result = JObject.Parse(match.ToString());
                 ComboboxItem item = new ComboboxItem();
-                item.Text = result.original_title + " (" + result.release_date + ")";
+                item.Text = result.original_name + " (" + result.first_air_date + ")";
                 item.Value = result.id;
 
                 comboBox1.Items.Add(item);
 
                 comboBox1.SelectedIndex = 0;
-
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string moviedb = (comboBox1.SelectedItem as ComboboxItem).Value.ToString();
+            string movieinfo = FanartTv.Helper.Json.GetJson("https://api.themoviedb.org/3/tv/" + moviedb + "?api_key=6caeea089cc15cefb0ecb71d257b8c86&language=en-US");
+            dynamic imdbsearch = JObject.Parse(movieinfo);
+            if (imdbsearch.poster_path != null)
+            {
+                pictureBox1.Load("https://image.tmdb.org/t/p/w500" + imdbsearch.poster_path);
+            }
+            else
+            {
+                pictureBox1.Load("https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/No_image_available_400_x_600.svg/500px-No_image_available_400_x_600.svg.png");
+            }
+
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         public class ComboboxItem
@@ -45,33 +62,14 @@ namespace Movie_Scrapper
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string moviedb = (comboBox1.SelectedItem as ComboboxItem).Value.ToString();
-            string movieinfo = FanartTv.Helper.Json.GetJson("https://api.themoviedb.org/3/movie/" + moviedb + "?api_key=6caeea089cc15cefb0ecb71d257b8c86&language=en-US");
-            dynamic imdbsearch = JObject.Parse(movieinfo);
-            if (imdbsearch.poster_path != null)
-            {
-                pictureBox1.Load("https://image.tmdb.org/t/p/w500" + imdbsearch.poster_path);
-            }
-            else
-            {
-                pictureBox1.Load("https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/No_image_available_400_x_600.svg/500px-No_image_available_400_x_600.svg.png");
-            }
-            
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             string moviedb = (comboBox1.SelectedItem as ComboboxItem).Value.ToString();
-            string movieinfo = FanartTv.Helper.Json.GetJson("https://api.themoviedb.org/3/movie/" + moviedb + "?api_key=6caeea089cc15cefb0ecb71d257b8c86&language=en-US");
+            string movieinfo = FanartTv.Helper.Json.GetJson("https://api.themoviedb.org/3/tv/" + moviedb + "?api_key=6caeea089cc15cefb0ecb71d257b8c86&language=en-US");
             dynamic imdbsearch = JObject.Parse(movieinfo);
-            Class1.imdbid = imdbsearch.imdb_id.ToString();
-            Class1.moviedbid = imdbsearch.id.ToString();
+            Class1.moviedbid = moviedb;
             Class1.plot = imdbsearch.overview.ToString();
-            Class1.movietitle = imdbsearch.original_title.ToString();
-            Class1.movieyear = imdbsearch.release_date.ToString();
+            Class1.movietitle = imdbsearch.original_name.ToString();
             Class1.movieposter = imdbsearch.poster_path;
             Class1.moviebackground = imdbsearch.backdrop_path;
             this.Close();
@@ -82,7 +80,7 @@ namespace Movie_Scrapper
             this.Close();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
@@ -92,12 +90,7 @@ namespace Movie_Scrapper
 
         }
 
-        private void MovieSelect_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label3_Click(object sender, EventArgs e)
+        private void Tv_Select_Load(object sender, EventArgs e)
         {
 
         }
