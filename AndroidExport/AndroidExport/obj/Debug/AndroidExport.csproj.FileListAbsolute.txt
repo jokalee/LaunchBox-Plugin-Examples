@@ -1,0 +1,8 @@
+c:\users\andre\onedrive\documents\visual studio 2017\Projects\AndroidExport\AndroidExport\bin\Debug\AndroidExport.dll
+c:\users\andre\onedrive\documents\visual studio 2017\Projects\AndroidExport\AndroidExport\bin\Debug\AndroidExport.pdb
+c:\users\andre\onedrive\documents\visual studio 2017\Projects\AndroidExport\AndroidExport\bin\Debug\Unbroken.LaunchBox.Plugins.dll
+c:\users\andre\onedrive\documents\visual studio 2017\Projects\AndroidExport\AndroidExport\obj\Debug\AndroidExport.csprojResolveAssemblyReference.cache
+c:\users\andre\onedrive\documents\visual studio 2017\Projects\AndroidExport\AndroidExport\obj\Debug\AndroidExport.dll
+c:\users\andre\onedrive\documents\visual studio 2017\Projects\AndroidExport\AndroidExport\obj\Debug\AndroidExport.pdb
+c:\users\andre\Desktop\Launchbox\Plugins\ExportToAndroid\AndroidExport.dll
+c:\users\andre\Desktop\Launchbox\Plugins\ExportToAndroid\AndroidExport.pdb
