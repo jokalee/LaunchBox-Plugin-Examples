@@ -43,8 +43,9 @@
     <Reference Include="Unbroken">
       <HintPath>..\..\..\..\..\..\Desktop\Launchbox\Metadata\Unbroken.dll</HintPath>
     </Reference>
-    <Reference Include="Unbroken.LaunchBox.Plugins">
-      <HintPath>..\..\..\..\..\..\Desktop\Launchbox\Metadata\Unbroken.LaunchBox.Plugins.dll</HintPath>
+    <Reference Include="Unbroken.LaunchBox.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=558191e84f56affc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Z:\Games\LaunchBox\Metadata\Unbroken.LaunchBox.Plugins.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
