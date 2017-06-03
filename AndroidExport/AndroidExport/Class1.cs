@@ -55,7 +55,7 @@ namespace AndroidExport
                     if (File.Exists(folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Box - Front\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + Unbroken.FileHelper.GetFileExtensionSafe(selectedGame.FrontImagePath)) != true)
                     {
                         Directory.CreateDirectory(folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Box - Front");
-                        File.Copy(selectedGame.FrontImagePath, folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Box - Front\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + Unbroken.FileHelper.GetFileExtensionSafe(selectedGame.FrontImagePath));
+                        File.Copy(selectedGame.FrontImagePath, folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Box - Front\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01" + Unbroken.FileHelper.GetFileExtensionSafe(selectedGame.FrontImagePath));
                     }
                     
 
@@ -66,7 +66,7 @@ namespace AndroidExport
                     if (File.Exists(folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Fanart - Background\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + Unbroken.FileHelper.GetFileExtensionSafe(selectedGame.BackgroundImagePath)) != true)
                     {
                         Directory.CreateDirectory(folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Fanart - Background");
-                        File.Copy(selectedGame.BackgroundImagePath, folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Fanart - Background\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + Unbroken.FileHelper.GetFileExtensionSafe(selectedGame.BackgroundImagePath));
+                        File.Copy(selectedGame.BackgroundImagePath, folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Fanart - Background\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01" + Unbroken.FileHelper.GetFileExtensionSafe(selectedGame.BackgroundImagePath));
                     }
                 }
 
@@ -75,7 +75,7 @@ namespace AndroidExport
                     if (File.Exists(folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + Unbroken.FileHelper.GetFileExtensionSafe(selectedGame.ClearLogoImagePath)) != true)
                     {
                         Directory.CreateDirectory(folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Clear Logo");
-                        File.Copy(selectedGame.ClearLogoImagePath, folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + Unbroken.FileHelper.GetFileExtensionSafe(selectedGame.ClearLogoImagePath));
+                        File.Copy(selectedGame.ClearLogoImagePath, folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01" + Unbroken.FileHelper.GetFileExtensionSafe(selectedGame.ClearLogoImagePath));
                     }
                     
 
@@ -90,25 +90,25 @@ namespace AndroidExport
                 string BigBoxPath = Path.Combine(Directory.GetCurrentDirectory(), "BigBox.exe");
                 string ApplicationPath = Unbroken.FileHelper.GetFullPath(selectedGame.ApplicationPath, Directory.GetCurrentDirectory());
                 string AndroidApplicationPath = Unbroken.FileHelper.GetFullPath(selectedGame.ApplicationPath,folderPath + "\\LaunchBox");
-                
-                if (System.IO.File.Exists(platformLogoPath))
+
+                if (System.IO.File.Exists(platformBannerPath))
                 {
                     if (File.Exists(folderPath + "\\LaunchBox\\Images\\Platforms\\" + selectedGame.Platform + "\\Banner\\" + selectedGame.Platform + ".jpg") != true)
                     {
                         Directory.CreateDirectory(folderPath + "\\LaunchBox\\Images\\Platforms\\" + selectedGame.Platform + "\\Banner");
-                        File.Copy(platformLogoPath, folderPath + "\\LaunchBox\\Images\\Platforms\\" + selectedGame.Platform + "\\Banner\\" + selectedGame.Platform + ".jpg");
+                        File.Copy(platformBannerPath, folderPath + "\\LaunchBox\\Images\\Platforms\\" + selectedGame.Platform + "\\Banner\\" + selectedGame.Platform + ".jpg");
                     }
-                    
+
 
                 }
-                if (System.IO.File.Exists(platformBannerPath))
+                if (System.IO.File.Exists(platformLogoPath))
                 {
-                    if (File.Exists(folderPath + "\\LaunchBox\\Images\\Platforms\\" + selectedGame.Platform + "\\Clear Logo\\" + selectedGame.Platform + ".jpg") != true)
+                    if (File.Exists(folderPath + "\\LaunchBox\\Images\\Platforms\\" + selectedGame.Platform + "\\Clear Logo\\" + selectedGame.Platform + ".png") != true)
                     {
                         Directory.CreateDirectory(folderPath + "\\LaunchBox\\Images\\Platforms\\" + selectedGame.Platform + "\\Clear Logo");
-                        File.Copy(platformBannerPath, folderPath + "\\LaunchBox\\Images\\Platforms\\" + selectedGame.Platform + "\\Clear Logo\\" + selectedGame.Platform + ".jpg");
+                        File.Copy(platformLogoPath, folderPath + "\\LaunchBox\\Images\\Platforms\\" + selectedGame.Platform + "\\Clear Logo\\" + selectedGame.Platform + ".png");
                     }
-                   
+
 
                 }
                 if (System.IO.File.Exists(platformDataPath))
@@ -214,7 +214,7 @@ namespace AndroidExport
                     if (File.Exists(folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Box - Front\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + Unbroken.FileHelper.GetFileExtensionSafe(selectedGame.FrontImagePath)) != true)
                     {
                         Directory.CreateDirectory(folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Box - Front");
-                        File.Copy(selectedGame.FrontImagePath, folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Box - Front\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + Unbroken.FileHelper.GetFileExtensionSafe(selectedGame.FrontImagePath));
+                        File.Copy(selectedGame.FrontImagePath, folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Box - Front\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01" + Unbroken.FileHelper.GetFileExtensionSafe(selectedGame.FrontImagePath));
                     }
 
 
@@ -225,7 +225,7 @@ namespace AndroidExport
                     if (File.Exists(folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Fanart - Background\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + Unbroken.FileHelper.GetFileExtensionSafe(selectedGame.BackgroundImagePath)) != true)
                     {
                         Directory.CreateDirectory(folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Fanart - Background");
-                        File.Copy(selectedGame.BackgroundImagePath, folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Fanart - Background\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + Unbroken.FileHelper.GetFileExtensionSafe(selectedGame.BackgroundImagePath));
+                        File.Copy(selectedGame.BackgroundImagePath, folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Fanart - Background\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01" + Unbroken.FileHelper.GetFileExtensionSafe(selectedGame.BackgroundImagePath));
                     }
                 }
 
@@ -234,7 +234,7 @@ namespace AndroidExport
                     if (File.Exists(folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + Unbroken.FileHelper.GetFileExtensionSafe(selectedGame.ClearLogoImagePath)) != true)
                     {
                         Directory.CreateDirectory(folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Clear Logo");
-                        File.Copy(selectedGame.ClearLogoImagePath, folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + Unbroken.FileHelper.GetFileExtensionSafe(selectedGame.ClearLogoImagePath));
+                        File.Copy(selectedGame.ClearLogoImagePath, folderPath + "\\LaunchBox\\Images\\" + selectedGame.Platform + "\\Clear Logo\\" + Unbroken.FileHelper.CoerceValidFileName(selectedGame.Title) + "-01" + Unbroken.FileHelper.GetFileExtensionSafe(selectedGame.ClearLogoImagePath));
                     }
 
 
@@ -250,22 +250,22 @@ namespace AndroidExport
                 string ApplicationPath = Unbroken.FileHelper.GetFullPath(selectedGame.ApplicationPath, Directory.GetCurrentDirectory());
                 string AndroidApplicationPath = Unbroken.FileHelper.GetFullPath(selectedGame.ApplicationPath, folderPath + "\\LaunchBox");
 
-                if (System.IO.File.Exists(platformLogoPath))
+                if (System.IO.File.Exists(platformBannerPath))
                 {
                     if (File.Exists(folderPath + "\\LaunchBox\\Images\\Platforms\\" + selectedGame.Platform + "\\Banner\\" + selectedGame.Platform + ".jpg") != true)
                     {
                         Directory.CreateDirectory(folderPath + "\\LaunchBox\\Images\\Platforms\\" + selectedGame.Platform + "\\Banner");
-                        File.Copy(platformLogoPath, folderPath + "\\LaunchBox\\Images\\Platforms\\" + selectedGame.Platform + "\\Banner\\" + selectedGame.Platform + ".jpg");
+                        File.Copy(platformBannerPath, folderPath + "\\LaunchBox\\Images\\Platforms\\" + selectedGame.Platform + "\\Banner\\" + selectedGame.Platform + ".jpg");
                     }
 
 
                 }
-                if (System.IO.File.Exists(platformBannerPath))
+                if (System.IO.File.Exists(platformLogoPath))
                 {
-                    if (File.Exists(folderPath + "\\LaunchBox\\Images\\Platforms\\" + selectedGame.Platform + "\\Clear Logo\\" + selectedGame.Platform + ".jpg") != true)
+                    if (File.Exists(folderPath + "\\LaunchBox\\Images\\Platforms\\" + selectedGame.Platform + "\\Clear Logo\\" + selectedGame.Platform + ".png") != true)
                     {
                         Directory.CreateDirectory(folderPath + "\\LaunchBox\\Images\\Platforms\\" + selectedGame.Platform + "\\Clear Logo");
-                        File.Copy(platformBannerPath, folderPath + "\\LaunchBox\\Images\\Platforms\\" + selectedGame.Platform + "\\Clear Logo\\" + selectedGame.Platform + ".jpg");
+                        File.Copy(platformLogoPath, folderPath + "\\LaunchBox\\Images\\Platforms\\" + selectedGame.Platform + "\\Clear Logo\\" + selectedGame.Platform + ".png");
                     }
 
 
