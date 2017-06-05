@@ -1,0 +1,14 @@
+C:\Users\andre\OneDrive\Documents\GitHub\LaunchBox-Plugin-Examples\MobyGui\MobyGamesScraper\bin\Debug\MobyGamesScraper.dll
+C:\Users\andre\OneDrive\Documents\GitHub\LaunchBox-Plugin-Examples\MobyGui\MobyGamesScraper\bin\Debug\MobyGamesScraper.pdb
+C:\Users\andre\OneDrive\Documents\GitHub\LaunchBox-Plugin-Examples\MobyGui\MobyGamesScraper\bin\Debug\Unbroken.dll
+C:\Users\andre\OneDrive\Documents\GitHub\LaunchBox-Plugin-Examples\MobyGui\MobyGamesScraper\bin\Debug\Unbroken.LaunchBox.Plugins.dll
+C:\Users\andre\OneDrive\Documents\GitHub\LaunchBox-Plugin-Examples\MobyGui\MobyGamesScraper\obj\Debug\MobyGamesScraper.csprojResolveAssemblyReference.cache
+C:\Users\andre\OneDrive\Documents\GitHub\LaunchBox-Plugin-Examples\MobyGui\MobyGamesScraper\obj\Debug\MobyGamesScraper.Form1.resources
+C:\Users\andre\OneDrive\Documents\GitHub\LaunchBox-Plugin-Examples\MobyGui\MobyGamesScraper\obj\Debug\MobyGamesScraper.csproj.GenerateResource.Cache
+C:\Users\andre\OneDrive\Documents\GitHub\LaunchBox-Plugin-Examples\MobyGui\MobyGamesScraper\obj\Debug\MobyGamesScraper.dll
+C:\Users\andre\OneDrive\Documents\GitHub\LaunchBox-Plugin-Examples\MobyGui\MobyGamesScraper\obj\Debug\MobyGamesScraper.pdb
+C:\Users\andre\Desktop\Launchbox\Plugins\MobyGamesMenuItem\MobyGamesScraper.dll.config
+C:\Users\andre\Desktop\Launchbox\Plugins\MobyGamesMenuItem\MobyGamesScraper.dll
+C:\Users\andre\Desktop\Launchbox\Plugins\MobyGamesMenuItem\MobyGamesScraper.pdb
+C:\Users\andre\OneDrive\Documents\GitHub\LaunchBox-Plugin-Examples\MobyGui\MobyGamesScraper\obj\Debug\MobyGamesScraper.Resource1.resources
+C:\Users\andre\OneDrive\Documents\GitHub\LaunchBox-Plugin-Examples\MobyGui\MobyGamesScraper\obj\Debug\MobyGamesScraper.Form2.resources

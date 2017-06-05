@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobyGui", "MobyGui\MobyGui.csproj", "{203F323E-9599-4DA5-9FBF-6364D19F306D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobyGamesScraper", "MobyGamesScraper\MobyGamesScraper.csproj", "{40807C4E-09E4-45F8-B8EB-11017673F826}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{203F323E-9599-4DA5-9FBF-6364D19F306D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{203F323E-9599-4DA5-9FBF-6364D19F306D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{203F323E-9599-4DA5-9FBF-6364D19F306D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{203F323E-9599-4DA5-9FBF-6364D19F306D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40807C4E-09E4-45F8-B8EB-11017673F826}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40807C4E-09E4-45F8-B8EB-11017673F826}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40807C4E-09E4-45F8-B8EB-11017673F826}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40807C4E-09E4-45F8-B8EB-11017673F826}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,9 +1,0 @@
-c:\users\andre\Desktop\Launchbox\Plugins\Test\MobyGui.dll
-c:\users\andre\Desktop\Launchbox\Plugins\Test\MobyGui.pdb
-c:\users\andre\onedrive\documents\visual studio 2017\Projects\MobyGui\MobyGui\obj\Debug\MobyGui.Form1.resources
-c:\users\andre\onedrive\documents\visual studio 2017\Projects\MobyGui\MobyGui\obj\Debug\MobyGui.csproj.GenerateResource.Cache
-c:\users\andre\onedrive\documents\visual studio 2017\Projects\MobyGui\MobyGui\obj\Debug\MobyGui.dll
-c:\users\andre\onedrive\documents\visual studio 2017\Projects\MobyGui\MobyGui\obj\Debug\MobyGui.pdb
-c:\users\andre\onedrive\documents\visual studio 2017\Projects\MobyGui\MobyGui\obj\Debug\MobyGui.csprojResolveAssemblyReference.cache
-c:\users\andre\Desktop\Launchbox\Plugins\Test\MobyGui.dll.config
-c:\users\andre\onedrive\documents\visual studio 2017\Projects\MobyGui\MobyGui\obj\Debug\MobyGui.Resource1.resources

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MobyGui")]
+[assembly: AssemblyTitle("MobyGamesScraper")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MobyGui")]
+[assembly: AssemblyProduct("MobyGamesScraper")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("203f323e-9599-4da5-9fbf-6364d19f306d")]
+[assembly: Guid("40807c4e-09e4-45f8-b8eb-11017673f826")]
 
 // Version information for an assembly consists of the following four values:
 //

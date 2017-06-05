@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MobyGui {
+namespace MobyGamesScraper {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -44,18 +44,6 @@ namespace MobyGui {
             }
             set {
                 this["WaitBetweenApiCalls"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
-        public int WaitBetweenMultiGames {
-            get {
-                return ((int)(this["WaitBetweenMultiGames"]));
-            }
-            set {
-                this["WaitBetweenMultiGames"] = value;
             }
         }
     }
